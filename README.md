@@ -18,6 +18,36 @@ Omnibus (GEO), including GSE43292 and GSE20950. Differential expression analyses
 were performed using GEO2R (limma-based), and full result tables were further
 processed using custom Python scripts.
 
-## Notes
-This repository is under active development. Additional documentation,
-parameter details, and processed result files will be added upon manuscript revision.
+# PC-network-pharmacology-transcriptomics
+
+This repository contains analysis scripts and notebooks used in the study of
+*Polygonum cuspidatum* (PC) to investigate its potential cardiometabolic and
+immune-related mechanisms through network pharmacology and transcriptomic analyses.
+
+---
+
+## Associated Manuscript
+
+The code in this repository supports the analyses presented in the manuscript:
+
+**"Network pharmacology and transcriptomic integration reveals potential
+cardiometabolic regulatory mechanisms of *Polygonum cuspidatum*"**
+
+---
+
+## Data Sources
+
+Publicly available transcriptomic datasets were obtained from the Gene Expression
+Omnibus (GEO):
+
+- GSE43292 (atherosclerotic plaque vs. intact tissue)
+- GSE20950 (insulin sensitive vs. insulin resistant subjects)
+
+Differential expression analyses were performed using GEO2R (limma-based), and
+full result tables were further processed using custom Python scripts.
+
+---
+
+## Repository Structure (in progress)
+
+
