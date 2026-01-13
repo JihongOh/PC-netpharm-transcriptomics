@@ -1,25 +1,45 @@
 # GAD Disease Enrichment Visualization
 
-Publication-quality visualization of GAD (Genetic Association Database) disease enrichment analysis results from DAVID Bioinformatics Resources.
+Visualization of GAD (Genetic Association Database) disease enrichment analysis results from DAVID Bioinformatics Resources.
 
-![Python](https://img.shields.io/badge/python-3.7+-blue.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
+![Python](https://img.shields.io/badge/python-3.7+-blue.svg) ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-## 🎯 Features
+##  Features
 
-- ✅ **Automatic duplicate removal** - Keeps most significant result (lowest P-value)
-- ✅ **Disease categorization** - Color-coded by functional category
-- ✅ **Cross-platform** - Works in Google Colab and local Python
-- ✅ **Clean formatting** - Converts complex terms: `Disease| context | drug` → `Disease (context; drug)`
-- ✅ **Publication-ready** - High-resolution output (300 DPI)
+-  **Automatic duplicate removal** - Keeps most significant result (lowest P-value)
+- **Disease categorization** - Color-coded by functional category
+-  **Cross-platform** - Works in Google Colab and local Python
+-  **Clean formatting** - Converts complex terms: `Disease| context | drug` → `Disease (context; drug)`
 
-## 📊 Example Output
 
-![Example](example_output/Figure3_example.png)
+##  Workflow
 
-*Top 10 most significantly enriched diseases with automatic categorization and clean formatting.*
+### Step 1: Generate GAD Enrichment Results from DAVID
 
-## 🚀 Quick Start
+1. **Go to DAVID website**: https://davidbioinformatics.nih.gov/
+    
+2. **Upload your gene list**:
+    
+    - Click "Shortcut to DAVID Tools"
+    - Click "Upload" tab
+    - Paste your gene list (one gene per line)
+    - Select identifier type (e.g., "OFFICIAL_GENE_SYMBOL")
+3. **Select species**:
+    
+    - Select taxonomy: `Homo sapiens (Human)`
+    - Click "Submit List"
+4. **Get GAD enrichment results**:
+    
+    - Click "Functional Annotation Chart"
+    - Find "GAD_DISEASE" section
+    - Click "Download File" → Select **CSV format**
+    - Save the CSV file
+
+### Step 2: Visualize with This Script
+
+Use the downloaded CSV file with this script to create publication-quality figures.
+
+##  Quick Start
 
 ### Google Colab (Easiest)
 
@@ -37,86 +57,96 @@ Publication-quality visualization of GAD (Genetic Association Database) disease 
 pip install pandas numpy matplotlib
 
 # Run with your data
-python gad_enrichment_plot.py path/to/your_data.csv
+python gad_enrichment_plot.py path/to/your_GAD_results.csv
 ```
 
-## 📥 Input Format
+##  Input Format
 
-CSV file from DAVID GAD enrichment analysis with these columns:
+CSV file from DAVID GAD enrichment analysis containing:
+
+**Required columns:**
+
 - `Term`: Disease name
 - `Count`: Number of associated genes
 - `P-Value`: Raw p-value
-- `Benjamini`: Adjusted p-value (FDR)
+- `Benjamini`: Adjusted p-value (Benjamini-Hochberg FDR)
 
-## ⚙️ Configuration
+**Example:**
 
-Edit these variables in the script:
+```csv
+Category,Term,Genes,Count,List Total,Pop Hits,Pop Total,P-Value,Benjamini,...
+GAD_DISEASE,lung cancer,29.87%,89,276,516,12919,2.73e-56,1.48e-52,...
+GAD_DISEASE,colorectal cancer,25.84%,77,276,426,12919,1.29e-49,2.33e-46,...
+```
+
+##  Configuration
+
+Edit these variables in the script to customize output:
 
 ```python
 TOP_N = 10              # Number of diseases to display
-DPI = 300               # Output resolution
+DPI = 300               # Output resolution (increase for publication)
 OUTPUT_FILENAME = 'Figure3_GAD_DotPlot.png'
 ```
 
-## 📖 Documentation
+**Adjust font sizes:**
 
-- **[GUIDE.md](GUIDE.md)** - Detailed usage instructions
-- **[GITHUB_UPLOAD_GUIDE.md](GITHUB_UPLOAD_GUIDE.md)** - How to upload to GitHub
+```python
+ax.tick_params(axis='y', labelsize=13)  # Y-axis labels (disease names)
+ax.set_xlabel(..., fontsize=13)         # X-axis label
+```
 
-## 🔬 Methodology
+##  Methodology
 
 ### Duplicate Removal
+
 When multiple entries exist for the same disease (case-insensitive):
+
 - **Method**: Keep entry with lowest P-value (most significant)
-- **Rationale**: Standard practice in enrichment analysis
-- **Reference**: Khatri et al. (2012) PLoS Comput Biol
+- **Rationale**: Standard practice in enrichment analysis to ensure conservative and reliable results
+
+**Example:**
+
+```
+lung cancer (P=2.73e-56) ✓ kept
+lung cancer (P=3.86e-53) ✗ removed
+```
+
+### Disease Term Formatting
+
+Complex terms with multiple contexts are reformatted for clarity:
+
+```
+Input:  Type 2 Diabetes| edema | rosiglitazone
+Output: Type 2 Diabetes (edema; rosiglitazone)
+```
 
 ### Disease Categories
 
-Automatic classification into 9 categories:
-- Cancer
-- Metabolic  
-- Cardiovascular
-- Kidney
-- Neurodegenerative
-- Autoimmune/Inflammatory
-- Respiratory
-- Infectious
-- Bone/Skeletal
+Automatic classification into 9 functional categories:
 
-## 📚 Citation
+- **Cancer** - Malignancies and neoplasms
+- **Metabolic** - Diabetes, obesity, lipid disorders
+- **Cardiovascular** - Heart disease, atherosclerosis
+- **Kidney** - Renal diseases
+- **Neurodegenerative** - Alzheimer's, Parkinson's
+- **Autoimmune/Inflammatory** - MS, arthritis
+- **Respiratory** - Asthma, COPD
+- **Infectious** - Viral, bacterial diseases
+- **Bone/Skeletal** - Bone density, osteoporosis
 
-If you use this tool in your research, please cite:
+##  License
 
-**DAVID:**
-```
-Huang da W, Sherman BT, Lempicki RA. 
-Systematic and integrative analysis of large gene lists using DAVID bioinformatics resources. 
-Nat Protoc. 2009;4(1):44-57.
-```
+MIT License - See [LICENSE](https://claude.ai/chat/LICENSE) for details
 
-**Multiple testing correction:**
-```
-Benjamini Y, Hochberg Y. 
-Controlling the false discovery rate: a practical and powerful approach to multiple testing. 
-J R Stat Soc Series B Methodol. 1995;57(1):289-300.
-```
-
-## 📝 License
-
-MIT License - See [LICENSE](LICENSE) for details
-
-## 🤝 Contributing
-
-Contributions welcome! Please open an issue or submit a pull request.
-
-## 📧 Contact
+##  Contact
 
 For questions or issues:
+
 - Open an issue on GitHub
-- Email: your.email@example.com
+- Email: jihong421@gmail.com
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
-- DAVID Bioinformatics Resources for enrichment analysis tools
-- GAD (Genetic Association Database) for disease-gene associations
+- [DAVID Bioinformatics Resources](https://davidbioinformatics.nih.gov/) for enrichment analysis tools
+- [GAD (Genetic Association Database)](https://geneticassociationdb.nih.gov/) for disease-gene associations
