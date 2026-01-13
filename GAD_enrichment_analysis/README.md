@@ -136,7 +136,6 @@ Automatic classification into 9 functional categories:
 - **Bone/Skeletal** - Bone density, osteoporosis
 
 ##  License
-
 MIT License - See [LICENSE](https://claude.ai/chat/LICENSE) for details
 
 ##  Contact
