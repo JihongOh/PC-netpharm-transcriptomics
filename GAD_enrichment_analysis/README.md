@@ -4,6 +4,12 @@ Visualization of GAD (Genetic Association Database) disease enrichment analysis 
 
 ![Python](https://img.shields.io/badge/python-3.7+-blue.svg) ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
+## Example Outputs
+
+### Figure 3: GAD enrichment analysis dot plot
+![Example 3](/Figure3_GAD_DotPlot.png)
+
+
 ##  Features
 
 -  **Automatic duplicate removal** - Keeps most significant result (lowest P-value)
