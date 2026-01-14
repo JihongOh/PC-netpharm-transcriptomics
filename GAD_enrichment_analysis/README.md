@@ -7,7 +7,7 @@ Visualization of GAD (Genetic Association Database) disease enrichment analysis 
 ## Example Outputs
 
 ### Figure 3: GAD enrichment analysis dot plot
-![Example 3](/Figure3_GAD_DotPlot.png)
+![Example 3](GAD_enrichment_analysis/Figure3_GAD_DotPlot.png)
 
 
 ##  Features
@@ -143,6 +143,14 @@ Automatic classification into 9 functional categories:
 
 ##  License
 MIT License - See [LICENSE](https://claude.ai/chat/LICENSE) for details
+
+**Software versions**:
+```
+Python: 3.12.12 (Google Colab)
+matplotlib: 3.10.0
+numpy: 2.0.2
+pandas: 2.2.2
+```
 
 ##  Contact
 
