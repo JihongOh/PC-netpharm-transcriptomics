@@ -5,7 +5,7 @@ Visualization of KEGG pathway enrichment analysis results from gProfiler for *Po
 ![Python](https://img.shields.io/badge/python-3.7+-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-## 📊 Overview
+##  Overview
 
 This repository contains scripts to visualize KEGG pathway enrichment results from two different gene sets:
 - **Figure 2A**: Hub genes (targets shared by 2+ compounds) - Cardiometabolic pathways
@@ -19,7 +19,7 @@ This repository contains scripts to visualize KEGG pathway enrichment results fr
 -  **Cross-platform** - Works in Google Colab and local Python
 -  **Automatic processing** - From gProfiler CSV to publication figure
 
-## 📊 Example Outputs
+##  Example Outputs
 
 ### Figure 2A: Hub Genes - Cardiometabolic Pathways
 ![Example 2A](example_output/Figure2A_example.png)
