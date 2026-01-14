@@ -7,7 +7,7 @@ Visualization of GAD (Genetic Association Database) disease enrichment analysis 
 ## Example Outputs
 
 ### Figure 3: GAD enrichment analysis dot plot
-![Example 3](GAD_enrichment_analysis/Figure3_GAD_DotPlot.png)
+![Example 3](Figure3_GAD_DotPlot.png)
 
 
 ##  Features
