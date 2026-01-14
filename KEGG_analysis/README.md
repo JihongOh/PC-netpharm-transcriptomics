@@ -11,13 +11,13 @@ This repository contains scripts to visualize KEGG pathway enrichment results fr
 - **Figure 2A**: Hub genes (targets shared by 2+ compounds) - Cardiometabolic pathways
 - **Figure 2B**: All target genes - Top 10 pathways
 
-## 🎯 Features
+##  Features
 
-- ✅ **Dual visualization** - Combined bar chart and gene heatmap (Figure 2A)
-- ✅ **Top pathway analysis** - Ranked by statistical significance (Figure 2B)
-- ✅ **Publication-ready** - High-resolution output (300 DPI)
-- ✅ **Cross-platform** - Works in Google Colab and local Python
-- ✅ **Automatic processing** - From gProfiler CSV to publication figure
+-  **Dual visualization** - Combined bar chart and gene heatmap (Figure 2A)
+-  **Top pathway analysis** - Ranked by statistical significance (Figure 2B)
+-  **Publication-ready** - High-resolution output (300 DPI)
+-  **Cross-platform** - Works in Google Colab and local Python
+-  **Automatic processing** - From gProfiler CSV to publication figure
 
 ## 📊 Example Outputs
 
@@ -31,7 +31,7 @@ This repository contains scripts to visualize KEGG pathway enrichment results fr
 
 *Top 10 KEGG pathways enriched from all target genes ranked by -log₁₀(adjusted P).*
 
-## 🔬 Workflow
+## Workflow
 
 ### Step 1: Target Gene Identification
 
@@ -46,25 +46,25 @@ This repository contains scripts to visualize KEGG pathway enrichment results fr
 
 ### Step 2: Run gProfiler Enrichment Analysis
 
-1. **Go to gProfiler**: https://biit.cs.ut.ee/gprofiler/gost
+1. **Go to gProfiler**: [https://biit.cs.ut.ee/gprofiler/gost](https://biit.cs.ut.ee/gprofiler/gost)
 
 2. **Input your gene list**:
    - Paste gene symbols (one per line)
    - Or upload file
 
 3. **Configure analysis**:
+   - Click 'Advanced Options'
    - Organism: `Homo sapiens`
-   - Data sources: Select **KEGG**
-   - Statistical method: `g:SCS threshold` (default)
-   - Significance threshold: `Benjamini-Hochberg FDR < 0.05`
+   - Significance threshold: `g:SCS threshold` (default)
+   - User threshold: 0.01
+   - Click 'Data Sources' : Select "KEGG"
 
 4. **Run analysis**:
    - Click "Run query"
    - Wait for results
 
 5. **Download results**:
-   - Click "Download" → Select **CSV format**
-   - Choose "Detailed results with intersections"
+   - Click "Detailed Results" -> "Download csv file"
    - Save the file
 
 **Note**: The CSV file should be named like:
@@ -74,7 +74,7 @@ This repository contains scripts to visualize KEGG pathway enrichment results fr
 
 Use the downloaded CSV files with the appropriate script.
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Google Colab (Easiest)
 
@@ -103,7 +103,7 @@ python kegg_hub_genes_plot.py hub_genes_gprofiler.csv
 python kegg_top10_plot.py all_targets_gprofiler.csv
 ```
 
-## 📥 Input Format
+## Input Format
 
 CSV file from gProfiler with these columns:
 
@@ -121,7 +121,7 @@ source,term_name,term_id,adjusted_p_value,negative_log10_of_adjusted_p_value,int
 KEGG,AGE-RAGE signaling pathway in diabetic complications,KEGG:04933,3.93e-18,17.41,15,"BAX,NFKB1,STAT3,..."
 ```
 
-## ⚙️ Configuration
+##  Configuration
 
 ### Figure 2A (Hub Genes)
 
@@ -144,13 +144,13 @@ Adjust number of pathways in `kegg_top10_plot.py`:
 TOP_N = 10  # Change to show more/fewer pathways
 ```
 
-## 🔬 Methodology
+##  Methodology
 
 ### Statistical Analysis
 
 **Enrichment test**: Hypergeometric test
-**Multiple testing correction**: Benjamini-Hochberg FDR
-**Significance threshold**: Adjusted P < 0.01, FDR < 0.05
+**Multiple testing correction**: g:SCS (default method in g:Profiledr)
+**Significance threshold**: Adjusted P < 0.01
 
 ### Hub Gene Definition
 
@@ -170,7 +170,7 @@ TOP_N = 10  # Change to show more/fewer pathways
 - Ranked by statistical significance
 - Broader biological interpretation
 
-## 📚 Data Source Information
+## Data Source Information
 
 ### Analysis Details
 
@@ -188,39 +188,19 @@ numpy: 2.0.2
 pandas: 2.2.2
 scipy: 1.16.3
 seaborn: 0.13.2
-matplotlib-venn: 1.1.2
 ```
 
-## 📖 Citation
-
-If you use these scripts in your research, please cite:
-
-**gProfiler**:
-```
-Raudvere U, Kolberg L, Kuzmin I, et al. 
-g:Profiler: a web server for functional enrichment analysis and conversions of gene lists (2019 update). 
-Nucleic Acids Res. 2019;47(W1):W191-W198.
-```
-
-**KEGG database**:
-```
-Kanehisa M, Goto S. 
-KEGG: Kyoto Encyclopedia of Genes and Genomes. 
-Nucleic Acids Res. 2000;28(1):27-30.
-```
-
-## 📝 License
+## License
 
 MIT License - See [LICENSE](LICENSE) for details
 
-## 📧 Contact
+## Contact
 
 For questions or issues:
 - Open an issue on GitHub
 - Email: jihong421@gmail.com
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - [gProfiler](https://biit.cs.ut.ee/gprofiler/) for pathway enrichment analysis
 - [KEGG](https://www.genome.jp/kegg/) for pathway database
-- *Polygonum cuspidatum* research community
