@@ -22,12 +22,12 @@ This repository contains scripts to visualize KEGG pathway enrichment results fr
 ##  Example Outputs
 
 ### Figure 2A: Hub Genes - Cardiometabolic Pathways
-![Example 2A](KEGG_analysis/Figure2A_Hub_Cardiometabolic_KEGG.png)
+![Example 2A](/Figure2A_example.png)
 
 *Enriched KEGG pathways from hub genes (degree ≥ 2) with gene distribution heatmap.*
 
 ### Figure 2B: All Targets - Top 10 Pathways
-![Example 2B](KEGG_analysis/Figure2B_Top10_KEGG_Pathways.png)
+![Example 2B](/Figure2B_example.png)
 
 *Top 10 KEGG pathways enriched from all target genes ranked by -log₁₀(adjusted P).*
 
