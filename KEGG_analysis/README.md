@@ -174,7 +174,7 @@ TOP_N = 10  # Change to show more/fewer pathways
 
 ### Analysis Details
 
-**Date**: December 6, 2025 (US format: 12/06/2025)
+**Access Date**: January 22, 2026 
 
 **Database versions**:
 - Human genome: GRCh38.p14
