@@ -185,7 +185,7 @@ If you use this code or data in your research, please cite:
   author = {Jihong Oh},
   title = {Polygonum Cuspidatum Core-4 Compound-Target Network Preprocessing},
   year = {2025},
-  url = {https://github.com/[username]/pc-network-pharmacology}
+  url = {https://github.com/JihongOh/PC-netpharm-transcriptomics}
 }
 ```
 
@@ -211,7 +211,7 @@ This code is released under the **CC0 1.0 Universal (Public Domain)** license, a
 
 For questions, suggestions, or issues:
 - Open an issue on GitHub
-- Contact: [email/contact information]
+- Contact: [jihong421@hanmail.net]
 
 ## Version History
 
