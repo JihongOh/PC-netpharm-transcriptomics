@@ -52,7 +52,7 @@ Output (compound_target_network.csv)
 ```
 ├── compound_target_network_preprocessing.py  # Main preprocessing script
 ├── README.md                                  # This file
-├── requirements.txt                           # Python dependencies
+├── example_input/                             # Example input files
 └── example_output/
     └── compound_target_network.csv           # Example output file
 ```
@@ -168,44 +168,6 @@ Shared Targets (all 4 compounds):
    Examples: TP53, CASP3, TNF, IL6, MAPK1, ...
 ```
 
-## Key Features
-
-### 1. Robust File Handling
-- Flexible column name detection (case-insensitive)
-- Graceful error handling for malformed inputs
-- Detailed processing logs
-
-### 2. Data Quality Control
-- Automatic duplicate removal
-- Whitespace trimming
-- NA value filtering
-- Gene symbol standardization
-
-### 3. Comprehensive Statistics
-- Compound-wise target distribution
-- Target frequency analysis
-- Identification of multi-target compounds
-- Shared target identification
-
-### 4. Documentation
-- Detailed progress messages
-- Processing logs
-- Data preview before export
-
-## Data Quality Notes
-
-### InChIKey Matching Strategy
-Although OB (Oral Bioavailability) and DL (Drug-likeness) thresholds are commonly applied in network pharmacology studies, they were **not used as exclusion filters** in this analysis. This decision was based on:
-
-1. Pre-selection of Core-4 compounds based on consistent experimental evidence
-2. Potential underestimation of relevance by ADME parameters for well-characterized phytochemicals
-3. Focus on reference-mining supported targets in HERB 2.0
-
-### Standardization Reference
-Gene symbols are standardized according to:
-- NCBI Gene database (https://www.ncbi.nlm.nih.gov/gene/)
-- HUGO Gene Nomenclature Committee (HGNC) guidelines
-
 ## Limitations
 
 1. **HERB 2.0 Completeness**: Network reflects available entries in HERB 2.0 as of 2025-01-21. Database updates may add or modify targets.
@@ -219,8 +181,8 @@ Gene symbols are standardized according to:
 If you use this code or data in your research, please cite:
 
 ```bibtex
-@software{noden_2025_pc_network,
-  author = {Noden},
+@software{PC-netpharm-transcriptomics,
+  author = {Jihong Oh},
   title = {Polygonum Cuspidatum Core-4 Compound-Target Network Preprocessing},
   year = {2025},
   url = {https://github.com/[username]/pc-network-pharmacology}
