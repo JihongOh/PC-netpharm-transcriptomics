@@ -17,12 +17,12 @@ This repository contains code for generating publication-ready volcano plots wit
 
 ## Features
 
-- ✅ Automated data cleaning (remove NaN, ambiguous probes, duplicates)
-- ✅ Customizable statistical thresholds (p-value and fold change)
-- ✅ Automatic label positioning using `adjustText`
-- ✅ High-resolution output (300 DPI)
-- ✅ Publication-ready formatting
-- ✅ Support for multiple datasets
+-  Automated data cleaning (remove NaN, ambiguous probes, duplicates)
+-  Customizable statistical thresholds (p-value and fold change)
+-  Automatic label positioning using `adjustText`
+-  High-resolution output (300 DPI)
+-  Publication-ready formatting
+-  Support for multiple datasets
 
 ## Requirements
 
@@ -139,12 +139,12 @@ Sample datasets are provided in the `example_data/` directory:
 If you use this code in your research, please cite:
 
 ```bibtex
-@article{your_paper_2025,
-  title={Your Paper Title},
-  author={Your Name et al.},
-  journal={Journal Name},
-  year={2025},
-  doi={your_doi}
+@article{,
+  title={Network Pharmacology and Transcriptome Analysis Reveal Potential Cardiometabolic Targets of Polygonum cuspidatum},
+  author={Jihong Oh et al.},
+  journal={biomedicine},
+  year={2026},
+  doi={}
 }
 ```
 
@@ -178,7 +178,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## Contact
 
-For questions or issues, please open an issue on GitHub or contact [your email].
+For questions or issues, please open an issue on GitHub or contact [jihong421@hanmail.net].
 
 ## Acknowledgments
 
