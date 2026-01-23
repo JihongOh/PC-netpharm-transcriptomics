@@ -34,18 +34,29 @@ except ImportError:
 # ============================================
 # Cardiometabolic KEGG pathways of interest
 CARDIOMETABOLIC_TERMS = [
-    "AGE-RAGE signaling pathway in diabetic complications",
-    "Lipid and atherosclerosis",
-    "Fluid shear stress and atherosclerosis",
-    "Insulin resistance",
-    "Adipocytokine signaling pathway",
+    # 1. Inflammation & Immune Response 
     "TNF signaling pathway",
     "IL-17 signaling pathway",
-    "NOD-like receptor signaling pathway",
+    "Th17 cell differentiation",
     "Toll-like receptor signaling pathway",
-    "MAPK signaling pathway",
+    "NOD-like receptor signaling pathway",
+    "Cytosolic DNA-sensing pathway",
+    "HIF-1 signaling pathway", 
+
+    # 2. Metabolic Dysfunction 
+    "AGE-RAGE signaling pathway in diabetic complications", 
+    "PPAR signaling pathway", 
+    "Insulin resistance", 
     "FoxO signaling pathway",
-    "HIF-1 signaling pathway",
+    "Apelin signaling pathway", 
+
+    # 3. Vascular Pathology & Atherosclerosis 
+    "Lipid and atherosclerosis", 
+    "Fluid shear stress and atherosclerosis", 
+    "Relaxin signaling pathway",
+    "VEGF signaling pathway",
+    "Adrenergic signaling in cardiomyocytes", 
+    "Efferocytosis" 
 ]
 
 OUTPUT_PNG = 'Figure2A_Hub_Cardiometabolic_KEGG.png'
