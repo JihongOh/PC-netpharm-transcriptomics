@@ -61,12 +61,12 @@ No installation required! Upload the Python script and run in Colab.
 
 ### Local Installation
 ```bash
-# Clone repository
-git clone https://github.com/yourusername/pc-core4-overlap-analysis.git
-cd pc-core4-overlap-analysis
+# Clone the repository
+git clone https://github.com/JihongOh/PC-netpharm-transcriptomics.git
+cd PC-netpharm-transcriptomics/DEG_analysis
 
-# Install requirements
-pip install -r requirements.txt
+# Install required packages
+pip install pandas numpy matplotlib matplotlib-venn openpyxl
 ```
 
 ## Usage
