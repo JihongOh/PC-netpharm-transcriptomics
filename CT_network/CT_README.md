@@ -211,7 +211,7 @@ This code is released under the **CC0 1.0 Universal (Public Domain)** license, a
 
 For questions, suggestions, or issues:
 - Open an issue on GitHub
-- Contact: [jihong421@hanmail.net]
+- Contact: [jihong421@gmail.com]
 
 ## Version History
 
