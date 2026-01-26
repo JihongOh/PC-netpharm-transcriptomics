@@ -43,13 +43,14 @@ adjustText>=0.8
 No installation required! Simply upload the notebook to Google Colab and run.
 
 ### Option 2: Local Installation
-```bash
+`````bash
 # Clone the repository
 git clone https://github.com/JihongOh/PC-netpharm-transcriptomics.git
-cd volcano-plot-analysis
+cd PC-netpharm-transcriptomics/DEG_analysis
 
-# Install required packages
+# Install required packages (if needed)
 pip install pandas numpy matplotlib adjustText
+
 ```
 
 ## Usage
