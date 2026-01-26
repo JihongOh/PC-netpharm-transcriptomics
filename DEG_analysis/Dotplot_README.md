@@ -41,13 +41,14 @@ matplotlib>=3.4.0
 No installation required! Upload the Python script and run directly in Colab.
 
 ### Option 2: Local Installation
-```bash
+``````bash
 # Clone the repository
 git clone https://github.com/JihongOh/PC-netpharm-transcriptomics.git
-cd kegg-pathway-dotplot
+cd PC-netpharm-transcriptomics/DEG_analysis
 
 # Install required packages
 pip install pandas numpy matplotlib
+
 ```
 
 ## Usage
