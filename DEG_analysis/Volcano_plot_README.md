@@ -45,7 +45,7 @@ No installation required! Simply upload the notebook to Google Colab and run.
 ### Option 2: Local Installation
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/volcano-plot-analysis.git
+git clone https://github.com/JihongOh/PC-netpharm-transcriptomics.git
 cd volcano-plot-analysis
 
 # Install required packages
