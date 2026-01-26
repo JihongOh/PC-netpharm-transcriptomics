@@ -55,8 +55,8 @@ This repository contains scripts to visualize KEGG pathway enrichment results fr
 3. **Configure analysis**:
    - Click 'Advanced Options'
    - Organism: `Homo sapiens`
-   - Significance threshold: `g:SCS threshold` (default)
-   - User threshold: 0.01
+   - Significance threshold: `Benjamini Hochberg FDR` (default: g:SCS threshold)
+   - User threshold: 0.01 (default: 0.05)
    - Click 'Data Sources' : Select "KEGG"
 
 4. **Run analysis**:
