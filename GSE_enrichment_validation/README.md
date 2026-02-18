@@ -6,7 +6,7 @@
 Validation of AGE-RAGE signaling and lipid/atherosclerosis pathway enrichment in 
 cardiometabolic disease transcriptomic datasets (GSE43292, GSE20950).
 
-## 📋 Overview
+## Overview
 
 This analysis validates the biological relevance of predicted therapeutic targets by 
 evaluating pathway-level enrichment in disease-relevant transcriptomic datasets.
@@ -34,13 +34,9 @@ are genuinely altered in disease contexts.
 - Reveals regulation direction (activation vs suppression)
 - Demonstrates coordinated transcriptomic changes
 
-**Purpose**: Distinguish between:
-- "Pathway is theoretically relevant" (network prediction)
-- "Pathway is transcriptionally altered in disease" (experimental validation)
-
 ---
 
-## 🔬 Validation Datasets
+## Validation Datasets
 
 | Dataset | Disease Context | Comparison | Samples | Relevance |
 |---------|----------------|------------|---------|-----------|
@@ -49,13 +45,13 @@ are genuinely altered in disease contexts.
 
 **Rationale for Dataset Selection:**
 - Independent patient cohorts (external validation)
-- Disease-relevant tissues (not surrogate markers like PBMCs)
+- Disease-relevant tissues 
 - Sufficient statistical power (n ≥ 15 per group)
 - Available expression data with quality annotation
 
 ---
 
-## 🎯 Key Questions Addressed
+## Key Questions Addressed
 
 1. **Are predicted pathways actually enriched in disease?**
    - Global ranking shows context among all pathways
@@ -63,19 +59,14 @@ are genuinely altered in disease contexts.
 
 2. **How strong is the enrichment?**
    - Odds ratios quantify effect size
-   - Gene ratios show proportion of pathway affected
 
 3. **Which genes drive the enrichment?**
    - Gene-level heatmaps identify specific alterations
    - Regulation direction reveals pathway activation status
 
-4. **Is enrichment consistent across datasets?**
-   - Cross-validation between atherosclerosis and metabolic contexts
-   - Identifies tissue-specific vs shared mechanisms
-
 ---
 
-## 🛠️ Requirements
+## Requirements
 
 ### Software
 - Python 3.12 or higher
