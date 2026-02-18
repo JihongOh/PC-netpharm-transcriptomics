@@ -121,24 +121,12 @@ scipy>=1.16.3
 ## Reproducibility
 
 - **Database access**: February 2026
-- **g:Profiler version**: e113_eg160_p18_4d0b5f6
-- **Analysis type**: Deterministic (no random components)
+- **g:Profiler**: [e113_eg160_p18_4d0b5f6](https://biit.cs.ut.ee/gprofiler/gost)
 
 Results are reproducible with the listed software versions and database access date.
 
 ---
 
-## Citation
-
-If using this workflow, please cite:
-
-1. The associated manuscript
-2. Original data sources:
-   - GEO database (Barrett et al., 2013)
-   - g:Profiler (Raudvere et al., 2019)
-   - KEGG (Kanehisa et al., 2021)
-
----
 
 ## Contact
 
@@ -146,9 +134,4 @@ If using this workflow, please cite:
 
 Email: jihong421@gmail.com
 
----
-
-## License
-
-MIT License - See LICENSE file for details.
 
