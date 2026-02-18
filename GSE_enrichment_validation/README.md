@@ -1,77 +1,154 @@
-# Pathway Enrichment Validation in GSE Cardiometabolic Datasets
+# Pathway Enrichment Assessment in Cardiometabolic Transcriptomic Datasets
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
 
-Validation of AGE-RAGE signaling and lipid/atherosclerosis pathway enrichment in 
-cardiometabolic disease transcriptomic datasets (GSE43292, GSE20950).
+This repository contains scripts for global and targeted pathway over-representation analysis (ORA) in two independent cardiometabolic transcriptomic datasets (GSE43292 and GSE20950).
+
+The workflow assesses enrichment of AGE-RAGE signaling and lipid/atherosclerosis pathways using differential expression results with experimental background correction.
+
+---
 
 ## Overview
 
-This analysis validates the biological relevance of predicted therapeutic targets by 
-evaluating pathway-level enrichment in disease-relevant transcriptomic datasets.
+The analysis integrates three complementary approaches:
 
-**Context**: Following network pharmacology prediction of Polygonum cuspidatum targets, 
-this analysis validates whether AGE-RAGE signaling and lipid/atherosclerosis pathways 
-are genuinely altered in disease contexts.
+1. **Genome-wide KEGG pathway ranking** - Establishes pathway importance in global context
+2. **Targeted Fisher's exact test** - Statistical validation of specific pathways
+3. **Gene-level expression profiling** - Identifies individual gene alterations
 
-### Analysis Strategy
-
-**1. Global KEGG Pathway Ranking**
-- Genome-wide assessment of all KEGG pathways
-- Determines relative importance of target pathways
-- Provides unbiased context: "Among all biological processes, where do our pathways rank?"
-
-**2. Targeted Statistical Validation**
-- Fisher's exact test for specific pathways of interest:
-  - AGE-RAGE signaling pathway in diabetic complications (KEGG:04933)
-  - Lipid and atherosclerosis (KEGG:05417)
-- Quantifies enrichment strength independent of global ranking
-- Controls for experimental background
-
-**3. Gene-Level Expression Profiling**
-- Identifies which specific pathway genes are altered
-- Reveals regulation direction (activation vs suppression)
-- Demonstrates coordinated transcriptomic changes
+These scripts reproduce the pathway validation analysis described in the manuscript. Results represent statistical enrichment assessment and do not constitute experimental validation of causal mechanisms.
 
 ---
 
-## Validation Datasets
+## Datasets
 
-| Dataset | Disease Context | Comparison | Samples | Relevance |
-|---------|----------------|------------|---------|-----------|
-| **GSE43292** | Atherosclerosis | Plaque vs intact arterial tissue | 32 vs 32 | Validates lipid/atherosclerosis pathway |
-| **GSE20950** | Metabolic dysfunction | Insulin-resistant vs insulin-sensitive adipose | 19 vs 20 | Validates AGE-RAGE/metabolic pathways |
+| Dataset | Context | Comparison | Samples |
+|---------|---------|------------|---------|
+| GSE43292 | Atherosclerosis | Plaque vs intact artery | 32 vs 32 |
+| GSE20950 | Insulin resistance | IR vs insulin-sensitive adipose | 19 vs 20 |
 
-**Rationale for Dataset Selection:**
-- Independent patient cohorts (external validation)
-- Disease-relevant tissues 
-- Sufficient statistical power (n ≥ 15 per group)
-- Available expression data with quality annotation
+Public datasets were processed using GEO2R. DEGs were filtered using adjusted p < 0.01 and absolute log2FC > 0.58.
 
 ---
 
-## Key Questions Addressed
+## Workflow
 
-1. **Are predicted pathways actually enriched in disease?**
-   - Global ranking shows context among all pathways
-   - Targeted test confirms statistical significance
+### Step 1: DEG Preprocessing
+```bash
+python step1_preprocess_deg.py
+```
 
-2. **How strong is the enrichment?**
-   - Odds ratios quantify effect size
+**Input**: GEO2R top table files (TSV format)
 
-3. **Which genes drive the enrichment?**
-   - Gene-level heatmaps identify specific alterations
-   - Regulation direction reveals pathway activation status
+**Output**: QC-filtered gene lists and experimental background sets
+
+Preprocessing steps:
+- Remove NaN/ambiguous gene symbols
+- Deduplicate probes (keep lowest adj.p per gene)
+- Generate background and DEG files for g:Profiler
+
+---
+
+### Step 2: Global KEGG Enrichment
+
+Performed via g:Profiler web interface: https://biit.cs.ut.ee/gprofiler/gost
+
+**Settings**:
+- Organism: Homo sapiens
+- Statistical domain: Custom (upload background from Step 1)
+- Data sources: KEGG only
+- Significance: Benjamini-Hochberg FDR < 0.01
+
+**Download**: Detailed results (CSV format)
+
+---
+
+### Step 3: Targeted Validation
+```bash
+python step2_validate_pathway_enrichment.py
+```
+
+**Input**: 
+- Preprocessed stats files (Step 1)
+- g:Profiler results (Step 2)
+
+**Analysis**:
+- Fisher's exact test for pathway enrichment
+- Odds ratio calculation
+- Gene-level expression summaries
+
+**Output**:
+- Global KEGG rankings (full tables)
+- Integrated enrichment summary
+- Gene expression heatmaps
+
+All outputs correspond to Supplementary Tables and Figures referenced in the manuscript.
 
 ---
 
 ## Requirements
 
-### Software
-- Python 3.12 or higher
-- Google Colab (recommended) or local Jupyter environment
-- Web browser (for g:Profiler step)
-
-### Python Dependencies
+**Python**: 3.12 or higher
 ```bash
+pip install -r requirements.txt
+```
+
+**Dependencies**:
+```
+pandas>=2.0.2
+numpy>=2.0.2
+matplotlib>=3.10.0
+seaborn>=0.13.2
+scipy>=1.16.3
+```
+
+---
+
+## Key Output Files
+
+| File | Description |
+|------|-------------|
+| KEGG_ORA_GSE43292_full.tsv | Complete global pathway ranking for GSE43292 |
+| KEGG_ORA_GSE20950_full.tsv | Complete global pathway ranking for GSE20950 |
+| Table_publication_ready.tsv | Integrated summary combining global and targeted results |
+| Fig_enrichment_heatmap.png | Pathway enrichment visualization |
+| Fig_gene_expression_KEGG_04933.png | AGE-RAGE pathway gene expression heatmap |
+| Fig_gene_expression_KEGG_05417.png | Lipid pathway gene expression heatmap |
+
+---
+
+## Reproducibility
+
+- **Database access**: February 2026
+- **g:Profiler version**: e113_eg160_p18_4d0b5f6
+- **Analysis type**: Deterministic (no random components)
+
+Results are reproducible with the listed software versions and database access date.
+
+---
+
+## Citation
+
+If using this workflow, please cite:
+
+1. The associated manuscript
+2. Original data sources:
+   - GEO database (Barrett et al., 2013)
+   - g:Profiler (Raudvere et al., 2019)
+   - KEGG (Kanehisa et al., 2021)
+
+---
+
+## Contact
+
+**Jihong Oh**
+
+Email: jihong421@gmail.com
+
+---
+
+## License
+
+MIT License - See LICENSE file for details.
+
