@@ -121,7 +121,7 @@ scipy>=1.16.3
 ## Reproducibility
 
 - **Database access**: February 2026
-- **g:Profiler**: [e113_eg160_p18_4d0b5f6](https://biit.cs.ut.ee/gprofiler/gost)
+- **g:Profiler**: (https://biit.cs.ut.ee/gprofiler/gost)
 
 Results are reproducible with the listed software versions and database access date.
 
