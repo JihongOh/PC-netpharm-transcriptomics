@@ -16,7 +16,7 @@ The Core-4 compounds were selected based on:
 2. Well-established biological activities
 3. Relevance to therapeutic mechanisms of *P. cuspidatum*
 
-**Database Access Date**: 2025-01-21
+**Database Access Date**: 2026-01-21
 
 ## Methodology
 
@@ -183,8 +183,9 @@ If you use this code or data in your research, please cite:
 ```bibtex
 @software{PC-netpharm-transcriptomics,
   author = {Jihong Oh},
-  title = {Polygonum Cuspidatum Core-4 Compound-Target Network Preprocessing},
-  year = {2025},
+  title = {Network Pharmacology and Transcriptome Analysis Reveal 
+Potential Cardiometabolic Targets of Polygonum cuspidatum},
+  year = {2026},
   url = {https://github.com/JihongOh/PC-netpharm-transcriptomics}
 }
 ```
@@ -203,10 +204,6 @@ Analysis Platform
 
 This preprocessing pipeline is part of a broader network pharmacology study investigating the therapeutic mechanisms of *Polygonum cuspidatum* using integrative computational methods.
 
-## License
-
-This code is released under the **CC0 1.0 Universal (Public Domain)** license, allowing unrestricted use for research and commercial purposes.
-
 ## Contact & Support
 
 For questions, suggestions, or issues:
@@ -215,7 +212,7 @@ For questions, suggestions, or issues:
 
 ## Version History
 
-- **v1.0** (2025-01-21): Initial release
+- **v1.0** (2026-01-21): Initial release
   - Core-4 compound target extraction from HERB 2.0
   - Deduplication and standardization
   - Statistics generation
